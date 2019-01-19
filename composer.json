@@ -1,0 +1,8 @@
+{
+  "name": "oblind/language",
+  "type": "library",
+  "description": "multiple language support",
+  "keywords": [
+      "oblind", "language"
+  ]
+}
