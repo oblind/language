@@ -3,6 +3,13 @@
   "type": "library",
   "description": "multiple language support",
   "keywords": [
-      "oblind", "language"
+    "oblind", "language"
+  ],
+  "license" : "Apache-2.0",
+  "authors": [
+    {
+      "name": "oblind",
+      "email": "oblind@163.com"
+    }
   ]
 }
