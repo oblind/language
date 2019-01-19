@@ -11,5 +11,10 @@
       "name": "oblind",
       "email": "oblind@163.com"
     }
-  ]
+  ],
+  "autoload": {
+    "psr-4": {
+      "Oblind\\Language": "src/"
+    }
+  }
 }
