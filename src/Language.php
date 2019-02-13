@@ -8,6 +8,8 @@ class Language implements \ArrayAccess {
   static $langs = [];
   /**@var static $lang */
   static $lang;
+  /**@var string $langName */
+  static $langName;
   protected $values = [];
 
   function offsetExists($offset): boolean {
@@ -33,12 +35,16 @@ class Language implements \ArrayAccess {
    * @return Language
    */
   static function set(string $lang): Language {
-    if(!$l = static::$langs[$lang] ?? null) {
-      $l = new static;
-      static::$langs[$lang] = $l;
-    }
-    static::$lang = $l;
-    return $l;
+    if(static::$langName != $lang) {
+      if(!$l = static::$langs[$lang] ?? null) {
+        $l = new static;
+        static::$langs[$lang] = $l;
+      }
+      static::$lang = $l;
+      static::$langName = $lang;
+      return $l;
+    } else
+      return static::$lang;
   }
 
   static function addTranslation(array $trans, string $lang = null) {
