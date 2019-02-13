@@ -34,7 +34,7 @@ class Language implements \ArrayAccess {
     if($lang instanceof Language)
       $lang = get_class($lang);
     else
-      $lang = ucfirst(str_replace('-', '', $lang));
+      $lang = str_replace(' ', '', ucwords(str_replace('-', ' ', $lang)));
     if(!$l = static::$langs[$lang] ?? null) {
       if(class_exists($lang)) {
         $l = new $lang;
@@ -50,7 +50,7 @@ class Language implements \ArrayAccess {
     return $l;
   }
 
-  static function trans(string $k): string {
-    return static::$values[$k] ?? $k;
+  static function addTranslation($trans) {
+    static::$values = array_merge(static::$values, $trans);
   }
 }

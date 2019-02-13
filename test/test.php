@@ -10,4 +10,4 @@ class ZhCN extends Language {
 }
 Language::set('zh-cn');
 
-echo _('hello');
+echo _('hello'), "\n";
