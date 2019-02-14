@@ -35,6 +35,7 @@ class Language implements \ArrayAccess {
    * @return Language
    */
   static function set(string $lang): Language {
+    $lang = strtolower($lang);
     if(static::$langName != $lang) {
       if(!$l = static::$langs[$lang] ?? null) {
         $l = new static;
@@ -49,6 +50,7 @@ class Language implements \ArrayAccess {
 
   static function addTranslation(array $trans, string $lang = null) {
     if($lang) {
+      $lang = strtolower($lang);
       if(!$l = static::$langs[$lang] ?? null) {
         $l = new static;
         static::$langs[$lang] = $l;

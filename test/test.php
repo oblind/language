@@ -11,5 +11,6 @@ Language::addTranslation([
 ]);
 
 echo _('hello'), "\n";
-Language::set('zh-cn');
+Language::set('zh-CN');
+echo Language::$langName, "\n";
 echo _('hello'), "\n";
