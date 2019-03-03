@@ -1,5 +1,5 @@
 <?php
-require '../src/Language.php';
+require '../vendor/autoload.php';
 
 use Oblind\Language;
 

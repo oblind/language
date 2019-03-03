@@ -1,8 +1,6 @@
 <?php
 namespace Oblind;
 
-require __DIR__ . '/global.php';
-
 class Language implements \ArrayAccess {
   /**@var array $langs */
   static $langs = [];
@@ -35,6 +33,8 @@ class Language implements \ArrayAccess {
    * @return Language
    */
   static function set(string $lang): Language {
+    if($p = strpos($lang, ','))
+      $lang = substr($lang, 0, $p);
     $lang = strtolower($lang);
     if(static::$langName != $lang) {
       if(!$l = static::$langs[$lang] ?? null) {

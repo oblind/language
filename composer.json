@@ -13,9 +13,9 @@
     }
   ],
   "autoload": {
-    "psr-4": {
-      "Oblind\\": "src/"
-    },
-    "files": ["src/global.php"]
+    "files": [
+      "src/global.php",
+      "src/Language.php"
+    ]
   }
 }
