@@ -14,8 +14,8 @@
   ],
   "autoload": {
     "files": [
-      "src/global.php",
-      "src/Language.php"
+      "src/Language.php",
+      "src/global.php"
     ]
   }
 }
