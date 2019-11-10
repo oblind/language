@@ -8,9 +8,14 @@ class Language implements \ArrayAccess {
   static $lang;
   /**@var string $langName */
   static $langName;
+  protected static $alias = [
+    'en' => ['en-us'],
+    'zh-cn' => ['zh-hans-cn', 'zh-sg'],
+    'zh-tw' => ['zh-hk']
+  ];
   protected $values = [];
 
-  function offsetExists($offset): boolean {
+  function offsetExists($offset): bool {
     return isset($this->values[$offset]);
   }
 
@@ -38,8 +43,16 @@ class Language implements \ArrayAccess {
     $lang = strtolower($lang);
     if(static::$langName != $lang) {
       if(!$l = static::$langs[$lang] ?? null) {
-        $l = new static;
-        static::$langs[$lang] = $l;
+        foreach(static::$alias as $k => $ls)
+          if(in_array($lang, $ls)) {
+            $lang = $k;
+            $l = static::$langs[$k] ?? null;
+            break;
+          }
+        if(!$l) {
+          $l = new static;
+          static::$langs[$lang] = $l;
+        }
       }
       static::$lang = $l;
       static::$langName = $lang;
