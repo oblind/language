@@ -23,11 +23,11 @@ class Language implements \ArrayAccess {
     return $this->values[$offset] ?? $offset;
   }
 
-  function offsetSet($offset, $value) {
+  function offsetSet($offset, $value): void {
     $this->values[$offset] = $value;
   }
 
-  function offsetUnset($offset) {
+  function offsetUnset($offset): void {
     unset($this->values[$offset]);
   }
 
